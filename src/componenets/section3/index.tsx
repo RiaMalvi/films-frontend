@@ -5,6 +5,7 @@ import Section from '../section'
 
 const Section3 = () => {
   return (
+    <div className="border-b-8 border-gray-500">
     <Section>
             <div className='flex flex-col gap-2 w-[40%]'>
                 <h1 className='text-4xl font-bold text-white'>Watch everywhere</h1>
@@ -14,6 +15,7 @@ const Section3 = () => {
                 <Image src={mac} alt='mac' />
             </div>
         </Section>
+    </div>
   )
 }
 

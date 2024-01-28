@@ -8,7 +8,7 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({children,className}) => {
   return (
-    <div className={clsx('bg-black w-full border-t-4 border-gray-500 ps-20 pe-20 pb-24 flex items-center justify-between')}>
+    <div className={clsx('bg-black w-full border-t-8 border-gray-500 ps-20 pe-20 pb-24 flex items-center justify-between')}>
       {children}
     </div>
   )
