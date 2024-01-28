@@ -1,11 +1,14 @@
 import Button from '@/componenets/atoms/button'
 import Navbar from '@/componenets/navbar'
 import React from 'react'
+import Section1 from '@/componenets/section1'
+import Section2 from '@/componenets/section2'
+import Section3 from '@/componenets/section3'
 
 const Home = () => {
   return (
-    <div>
-      <div className="flex h-screen justify-center items-center flex-col">
+    <div className=''>
+      <div className="flex justify-center items-center flex-col">
         <div className="w-full h-screen bg-[url('../assets/img/bg1.jpg')] bg-cover bg-center">
           <div className="w-full h-full flex  justify-center items-center backdrop-brightness-50">
             <Navbar />
@@ -17,6 +20,9 @@ const Home = () => {
             </div>
           </div>
         </div>
+        <Section1 />
+        <Section2 />
+        <Section3/>
       </div>
     </div>
   )
