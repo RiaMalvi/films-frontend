@@ -1,8 +1,8 @@
 import React from 'react'
 import Footer from '@/componenets/footer'
-import Form from '@/componenets/LoginForm'
+import Form from '@/componenets/SignUpForm'
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="w-full h-screen bg-[url('../assets/img/bg1.jpg')] bg-cover bg-center flex flex-col">
       <div className="w-full h-screen flex flex-col backdrop-brightness-50 items-center">
@@ -16,4 +16,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default SignUp
