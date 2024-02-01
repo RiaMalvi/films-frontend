@@ -76,7 +76,7 @@ const SForm = () => {
         <input type="password" placeholder="Confirm Password" className="bg-transparent border-gray-700 border-2 p-2 w-full rounded-md py-3" value={cpasswd} onChange={(event) => {
           setCPasswd(event.target.value)
         }} />
-        <Button className="text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 text-sm !rounded-md w-full" onClick={handleSubmit} disabled={false}>Sign Up</Button>
+        <Button className="text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 text-sm !rounded-md w-full" onClick={handleSubmit} disabled={loading}>Sign Up</Button>
         <div className="flex gap-2 self-start mt-10">
           <input type="checkbox" className="bg-black border-gray-700 "></input>
           <p className="text-white text-sm">Remember Me</p>
