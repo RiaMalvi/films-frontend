@@ -1,9 +1,9 @@
 import React from 'react'
 import Button from '../atoms/button'
-import { useForm } from 'react-hook-form'
+import { set, useForm } from 'react-hook-form'
 import { toast } from 'react-toastify'
 import axios from 'axios'
-
+import { useRouter } from 'next/router'
 
 const SForm = () => {
   const [formState, setFormState] = React.useState({
@@ -13,9 +13,12 @@ const SForm = () => {
     phone: '',
     password: ''
   })
+  const [loading, setLoading] = React.useState(false)
   const [cpasswd, setCPasswd] = React.useState('');
+  const router = useRouter()
 
   const handleSubmit = () => {
+    setLoading(true)
     if (formState.password != cpasswd) {
       toast.error('Password does not match', {
         position: 'top-right',
@@ -24,12 +27,30 @@ const SForm = () => {
         closeOnClick: true,
         draggable: false
       })
+      setFormState({
+        username: '',
+        name: '',
+        email: '',
+        phone: '',
+        password: ''
+      })
+      setCPasswd('')
+      setLoading(false)
       return
     }
     axios.post('http://localhost:1337/api/auth/local/register', formState).then((res) => {
       toast.success("Account Created Successfully")
+      router.push('/login')
     }).catch((err) => {
-      toast.error("Error Occured")
+      toast.error(err.response.data.error.message)
+      setFormState({
+        username: '',
+        name: '',
+        email: '',
+        phone: '',
+        password: ''
+      })
+      setCPasswd('')
     })
   }
 
@@ -55,7 +76,7 @@ const SForm = () => {
         <input type="password" placeholder="Confirm Password" className="bg-transparent border-gray-700 border-2 p-2 w-full rounded-md py-3" value={cpasswd} onChange={(event) => {
           setCPasswd(event.target.value)
         }} />
-        <Button className="text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 text-sm !rounded-md w-full" onClick={handleSubmit}>Sign Up</Button>
+        <Button className="text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 dark:bg-red-600 dark:hover:bg-red-700 text-sm !rounded-md w-full" onClick={handleSubmit} disabled={false}>Sign Up</Button>
         <div className="flex gap-2 self-start mt-10">
           <input type="checkbox" className="bg-black border-gray-700 "></input>
           <p className="text-white text-sm">Remember Me</p>

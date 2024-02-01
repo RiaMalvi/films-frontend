@@ -6,8 +6,11 @@ import Section2 from '@/componenets/section2'
 import Section3 from '@/componenets/section3'
 import Accordian from '@/componenets/accordian'
 import Footer from '@/componenets/footer'
+import { useRouter } from 'next/router'
 
 const Home = () => {
+  const router = useRouter()
+
   return (
     <div className=''>
       <div className="flex justify-center items-center flex-col">
@@ -18,7 +21,7 @@ const Home = () => {
               <h1 className="text-6xl text-white font-bold">Welcome to FilmyDuniya</h1>
               <p className="text-xl text-white my-5">The Best Place to Review Movies</p>
               <p className="text-xl text-white">Ready to watch? Enter your email to create or restart your membership.</p>
-              <Button className='text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 me-2 mb-2 my-2 dark:bg-red-600 dark:hover:bg-red-700'>Get Started</Button>
+              <Button className='text-white bg-red-700 hover:bg-red-800 px-5 py-2.5 me-2 mb-2 my-2 dark:bg-red-600 dark:hover:bg-red-700' onClick={()=>{router.push('/signup')}}>Get Started</Button>
             </div>
           </div>
         </div>
