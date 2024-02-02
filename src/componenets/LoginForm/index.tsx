@@ -31,7 +31,7 @@ const Form = () => {
         password: ''
       })
     }).finally(() => {
-      router.push('/home')
+      router.push('/films')
     })
   }
 
